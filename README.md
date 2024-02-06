@@ -25,4 +25,6 @@ npm run dev
 
 ### Sources
 
-https://ui.shadcn.com/docs
+https://ui.shadcn.com/docs \
+https://clerk.com/docs/quickstarts/
+https://clerk.com/docs/references/nextjs/custom-signup-signin-pages
