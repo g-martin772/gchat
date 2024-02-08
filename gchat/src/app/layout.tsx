@@ -29,8 +29,6 @@ export default function RootLayout({
                          defaultTheme="system"
                          enableSystem>
             {children}
-            <ModeToggle/>
-            <UserButton/>
           </ThemeProvider>
         </body>
       </html>
