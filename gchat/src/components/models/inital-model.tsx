@@ -40,6 +40,8 @@ import {
     useEffect,
     useState
 } from "react";
+import {UploadButton} from "@/lib/uploadthing";
+import FileUpload from "@/components/file-upload";
 
 
 const formSchema = z.object({
@@ -86,7 +88,17 @@ export default function InitialModel() {
                     <form onSubmit={form.handleSubmit(onSubmit)} className={"space-y-8"}>
                         <div className={"space-y-8 px-6"}>
                             <div className={"flex items-center justify-center text-center"}>
-                                TODO: Add image upload
+                                <FormField control={form.control} render={({ field }) => (
+                                    <FormItem>
+                                        <FormControl>
+                                            <FileUpload
+                                                endpoint={"serverImage"}
+                                                value={field.value}
+                                                onChange={field.onChange}
+                                            />
+                                        </FormControl>
+                                    </FormItem>
+                                )} name={"imageUrl"} />
                             </div>
                             <FormField control={form.control} name={"name"} render={({field}) => (
                                 <FormItem>
