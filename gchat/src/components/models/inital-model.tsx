@@ -40,8 +40,11 @@ import {
     useEffect,
     useState
 } from "react";
-import {UploadButton} from "@/lib/uploadthing";
+
 import FileUpload from "@/components/file-upload";
+
+import axios from "axios";
+import {useRouter} from "next/navigation";
 
 
 const formSchema = z.object({
@@ -51,6 +54,8 @@ const formSchema = z.object({
 
 export default function InitialModel() {
     const [isMounted, setIsMounted] = useState(false);
+
+    const router = useRouter();
 
     useEffect(() => {
         setIsMounted(true);
@@ -67,7 +72,14 @@ export default function InitialModel() {
     const isLoading = form.formState.isSubmitting;
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
-        console.log(values);
+        try {
+            await axios.post("/api/servers", values);
+            form.reset();
+            router.refresh();
+            window.location.reload();
+        } catch (error) {
+            console.error(error);
+        }
     };
 
     if (!isMounted) return null;
