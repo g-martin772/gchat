@@ -21,7 +21,7 @@ export function NavigationItem({ id, imageUrl, name}: NavigationItemProps){
 
   return (
     <ActionTooltip label={name} side={"right"} align={"center"}>
-      <button onClick={() => {}} className={"group flex items-center"}>
+      <button onClick={() => {onClick()}} className={"group flex items-center"}>
         <div className={cn(
           "absolute left-0 bg-primary rounded-r-full transition-all w-[4px]",
           params?.serverId !== id && "group-hover:h-[20px]",

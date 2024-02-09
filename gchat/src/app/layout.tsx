@@ -5,6 +5,7 @@ import {ThemeProvider} from "@/components/providers/theme-provider";
 import {ModeToggle} from "@/components/mode-toggle";
 import {cn} from "@/lib/utils";
 import {ClerkProvider, UserButton} from '@clerk/nextjs'
+import {ModalProvider} from "@/components/providers/modal-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,6 +29,7 @@ export default function RootLayout({
           <ThemeProvider attribute="class"
                          defaultTheme="system"
                          enableSystem>
+            <ModalProvider />
             {children}
           </ThemeProvider>
         </body>
